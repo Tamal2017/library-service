@@ -1,0 +1,37 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: Library service api
+  description: Library service contract api define with openapi 3.0.3
+
+tags:
+  - name: library
+
+paths:
+  /library/books:
+    get:
+      summary: Get all books
+      description: This api return the list of all books in library
+      operationId: getAllBooks
+      responses:
+        200:
+          description: The method runs succesfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
+components:
+  schemas:
+    Book:
+      description: Book model
+      type: object
+      properties:
+        name:
+          description: The name of book
+          type: string
+        author:
+          description: name of book author
+          type: string
